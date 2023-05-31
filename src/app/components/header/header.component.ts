@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { ActivatedRoute, UrlSegment } from '@angular/router';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +6,5 @@ import { ActivatedRoute, UrlSegment } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private route: ActivatedRoute) {}
-  openModal: boolean = false;
-
-  toggle(): void {
-    this.openModal = !this.openModal;
-  }
+  constructor() {}
 }

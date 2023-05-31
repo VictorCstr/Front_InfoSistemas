@@ -10,6 +10,7 @@ import { ListComponent } from './components/list/list.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CreateUserFormComponent } from './components/create-user-form/create-user-form.component';
+import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-details.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CreateUserFormComponent } from './components/create-user-form/create-us
     HeaderComponent,
     FooterComponent,
     CreateUserFormComponent,
+    VehicleDetailsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

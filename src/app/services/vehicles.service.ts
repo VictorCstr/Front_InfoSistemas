@@ -14,15 +14,11 @@ export class VehiclesService {
     return this.http.get<Vehicle[]>(`${this.apiUrl}/vehicle`);
   }
 
+  getSingleVehicle(id: string): Observable<Vehicle> {
+    return this.http.get<Vehicle>(`${this.apiUrl}/vehicle/${id}`);
+  }
+
   // remove(id: number) {
   //   return this.http.delete<Animal>(`${this.apiUrl}/${id}`);
-  // }
-
-  // getAll(): Observable<Animal[]> {
-  //   return this.http.get<Animal[]>(this.apiUrl);
-  // }
-
-  // getAnimal(id: number): Observable<Animal> {
-  //   return this.http.get<Animal>(`${this.apiUrl}/${id}`);
   // }
 }

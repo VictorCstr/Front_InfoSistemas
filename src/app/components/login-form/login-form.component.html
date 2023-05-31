@@ -28,14 +28,23 @@
         />
         <label for="floatingPassword">Senha</label>
       </div>
-      <button
-        routerLink="painel"
-        class="w-100 btn btn-lg btn-warning mt-5"
-        type="submit"
-        id="login"
-      >
-        Login
-      </button>
+      <div class="btn-group">
+        <button
+          routerLink="painel"
+          class="w-100 btn btn-warning"
+          type="submit"
+          id="login"
+        >
+          Login
+        </button>
+        <button
+          class="btn btn-info w-100"
+          type="submit"
+          routerLink="/createUser"
+        >
+          Ainda não tem um cadastro?
+        </button>
+      </div>
     </form>
   </main>
 </body>
