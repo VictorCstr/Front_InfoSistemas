@@ -1,0 +1,50 @@
+<form>
+  <div class="text-center container" id="containerCreate">
+    <img
+      class="mb-4"
+      src="/assets/person-add.svg"
+      alt=""
+      width="72"
+      height="57"
+    />
+    <h2 class="h3 mb-3 fw-normal">Preencha os dados Abaixo!</h2>
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="text"
+        id="name"
+        [(ngModel)]="name"
+        name="name"
+        placeholder="Digite seu nome"
+      />
+    </div>
+
+    <div>
+      <input
+        class="form-control"
+        type="text"
+        id="name"
+        [(ngModel)]="user"
+        name="user"
+        placeholder="Digite seu nome de usuário"
+      />
+    </div>
+
+    <div class="form-group">
+      <input
+        class="form-control"
+        type="password"
+        id="senha-senha"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Digite sua senha"
+      />
+    </div>
+
+    <input class="btn btn-primary btn-lg mt-4" type="submit" value="Criar" />
+  </div>
+</form>
+
+<!-- <div class="valid-feedback">Email Válido</div> -->
+<!-- class="form-control is-invalid" -->
+<!-- <div class="invalid-feedback">Senha inválida</div> -->
