@@ -18,7 +18,7 @@ export class VehiclesService {
     return this.http.get<Vehicle>(`${this.apiUrl}/vehicle/${id}`);
   }
 
-  // remove(id: number) {
-  //   return this.http.delete<Animal>(`${this.apiUrl}/${id}`);
-  // }
+  remove(id: string) {
+    return this.http.delete<Vehicle>(`${this.apiUrl}/vehicle/${id}`);
+  }
 }
