@@ -18,7 +18,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CreateVehicleFormComponent {
   constructor(
     private vehicleService: VehiclesService,
-    private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder
   ) {
