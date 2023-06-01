@@ -1,9 +1,9 @@
 export interface Vehicle {
-  id: string;
+  id?: string;
   placa: string;
   chassi: string;
   renavam: string;
   modelo: string;
   marca: string;
-  ano: number;
+  ano: string;
 }

@@ -14,8 +14,13 @@ export class ListComponent {
   vehicles: Vehicle[] = [];
 
   listVehicles(): void {
-    this.vehiclesService.getAllVehicles().subscribe((vehicles) => {
-      this.vehicles = vehicles;
-    });
+    this.vehiclesService.getAllVehicles().subscribe(
+      (vehicles) => {
+        this.vehicles = vehicles;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }
