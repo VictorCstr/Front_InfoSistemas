@@ -25,9 +25,26 @@ export class CreateVehicleFormComponent {
       modelo: ['', [Validators.required]],
       marca: ['', [Validators.required]],
       ano: ['', [Validators.required]],
-      placa: ['', [Validators.required]],
-      chassi: ['', [Validators.required]],
-      renavam: ['', [Validators.required]],
+      placa: [
+        '',
+        [Validators.required, Validators.maxLength(7), Validators.minLength(7)],
+      ],
+      chassi: [
+        '',
+        [
+          Validators.required,
+          Validators.maxLength(17),
+          Validators.minLength(17),
+        ],
+      ],
+      renavam: [
+        '',
+        [
+          Validators.required,
+          Validators.maxLength(11),
+          Validators.minLength(11),
+        ],
+      ],
     });
   }
 
