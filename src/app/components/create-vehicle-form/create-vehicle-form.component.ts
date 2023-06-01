@@ -1,8 +1,14 @@
-import { Component, ViewChild } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { Vehicle } from 'src/app/interfaces/Vehicle';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VehiclesService } from 'src/app/services/vehicles.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-vehicle-form',
@@ -12,18 +18,40 @@ import { Router } from '@angular/router';
 export class CreateVehicleFormComponent {
   constructor(
     private vehicleService: VehiclesService,
+    private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder
   ) {
     this.createForm();
   }
 
-  form!: FormGroup;
+  @Input() form!: FormGroup;
+  @Input() title: string = 'Insira os dados do novo veículo!';
+  @Input() renavam!: string;
+  @Input() btnText: string = 'Criar';
+  @Input() vehicle!: Vehicle;
+  @Output() changeValue: EventEmitter<any> = new EventEmitter();
+  @Output() submitForm: EventEmitter<any> = new EventEmitter();
+
+  handle(): void {
+    this.changeValue.emit();
+  }
+
+  submitHandler(): void {
+    if (this.router.url === '/painel/create') {
+      this.vehicleService.createVehicle(this.form.value).subscribe({
+        next: () => {
+          this.router.navigate(['painel']);
+        },
+      });
+    }
+    this.submitForm.emit();
+  }
 
   createForm(): void {
     this.form = this.formBuilder.group({
-      modelo: ['', [Validators.required]],
       marca: ['', [Validators.required]],
+      modelo: ['', [Validators.required]],
       ano: ['', [Validators.required]],
       placa: [
         '',
@@ -45,18 +73,6 @@ export class CreateVehicleFormComponent {
           Validators.minLength(11),
         ],
       ],
-    });
-  }
-
-  log() {
-    console.log(this.form.value);
-  }
-
-  createVehicle(): void {
-    this.vehicleService.createVehicle(this.form.value).subscribe({
-      next: () => {
-        this.router.navigate(['/painel']);
-      },
     });
   }
 }

@@ -25,4 +25,8 @@ export class VehiclesService {
   remove(id: string) {
     return this.http.delete<Vehicle>(`${this.apiUrl}/vehicle/${id}`);
   }
+
+  update(id: string, formData: FormData): Observable<FormData> {
+    return this.http.put<FormData>(`${this.apiUrl}/vehicle/${id}`, formData);
+  }
 }

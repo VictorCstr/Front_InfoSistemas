@@ -9,11 +9,11 @@ import { UpdateVehicleFormComponent } from './components/update-vehicle-form/upd
 
 const routes: Routes = [
   { path: '', component: LoginFormComponent },
+  { path: 'user', component: CreateUserFormComponent },
   { path: 'painel', component: ListComponent },
-  { path: 'painel/:id', component: VehicleDetailsComponent },
-  { path: 'createUser', component: CreateUserFormComponent },
-  { path: 'createvehicle', component: CreateVehicleFormComponent },
-  { path: 'updatevehicle', component: UpdateVehicleFormComponent },
+  { path: 'painel/get/:id', component: VehicleDetailsComponent },
+  { path: 'painel/create', component: CreateVehicleFormComponent },
+  { path: 'painel/update/:id', component: UpdateVehicleFormComponent },
 ];
 
 @NgModule({

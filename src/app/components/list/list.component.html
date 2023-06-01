@@ -1,6 +1,6 @@
 <div class="container">
   <h3 class="text-sm-center mb-5">Lista de Veículos</h3>
-  <button class="btn btn-primary mb-3" routerLink="/createvehicle">
+  <button class="btn btn-primary mb-3" routerLink="/painel/create">
     Criar um novo veículo na lista
   </button>
   <div class="card-columns">
@@ -10,7 +10,9 @@
           {{ vehicle.marca }} {{ vehicle.modelo }} - ano: {{ vehicle.ano }}
         </h4>
         <p class="card-text">Placa: {{ vehicle.placa }}</p>
-        <a routerLink="/painel/{{ vehicle.id }}" class="btn btn-outline-primary"
+        <a
+          routerLink="/painel/get/{{ vehicle.id }}"
+          class="btn btn-outline-primary"
           >Ver detalhes</a
         >
       </div>

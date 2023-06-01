@@ -1,4 +1,4 @@
-<body class="text-center container">
+<body class="text-center container" (pointerenter)="handle()">
   <main>
     <img
       class="mb-4"
@@ -7,8 +7,9 @@
       width="72"
       height="57"
     />
-    <h1 class="h3 mb-3 fw-normal">Insira os dados do novo veículo!</h1>
-    <form [formGroup]="form" (ngSubmit)="createVehicle()">
+    <h1 class="h3 mb-3 fw-normal">{{ title }}</h1>
+
+    <form [formGroup]="form" (ngSubmit)="submitHandler()">
       <div class="form-floating">
         <input
           type="text"
@@ -153,12 +154,11 @@
         </div>
       </div>
       <button
-        routerLink="painel"
         class="w-25 btn btn-primary mt-3"
         type="submit"
         [disabled]="!form.valid"
       >
-        Criar
+        {{ btnText }}
       </button>
     </form>
     <button routerLink="/painel" class="w-25 btn btn-danger mt-3" type="submit">
