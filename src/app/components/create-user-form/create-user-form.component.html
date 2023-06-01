@@ -55,6 +55,9 @@
         Obrigatório informar a sua senha!
       </div>
     </div>
+    <div class="text-danger mt-2 mb-4" *ngIf="error$ | async">
+      Erro ao realizar o cadastro, preencha novamente conferindo os dados.
+    </div>
 
     <input
       class="btn btn-primary btn-lg mt-4"

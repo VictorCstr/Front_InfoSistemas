@@ -22,8 +22,8 @@ export class UpdateVehicleFormComponent {
     private vehicleService: VehiclesService,
     private formBuilder: FormBuilder
   ) {
-    this.createForm();
     this.loadData();
+    this.createForm();
   }
 
   loadData(): void {

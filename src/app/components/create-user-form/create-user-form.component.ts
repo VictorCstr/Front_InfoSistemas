@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subject, catchError, of } from 'rxjs';
 import { User } from 'src/app/interfaces/User';
 import { UserService } from 'src/app/services/user.service';
 
@@ -12,6 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class CreateUserFormComponent {
   user!: User;
   form!: FormGroup;
+  error$ = new Subject<true>();
 
   constructor(
     private userService: UserService,
@@ -30,11 +32,20 @@ export class CreateUserFormComponent {
   }
 
   onSubmit(): void {
-    this.userService.createUser(this.form.value).subscribe({
-      next: () => {
-        alert('Usuário criado com sucesso!');
-        this.router.navigate(['']);
-      },
-    });
+    this.userService
+      .createUser(this.form.value)
+      .pipe(
+        catchError((error) => {
+          console.error(error);
+          this.error$.next(true);
+          return of();
+        })
+      )
+      .subscribe({
+        next: () => {
+          alert('Usuário criado com sucesso!');
+          this.router.navigate(['']);
+        },
+      });
   }
 }

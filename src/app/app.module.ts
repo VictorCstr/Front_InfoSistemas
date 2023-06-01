@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,7 @@ import { CreateUserFormComponent } from './components/create-user-form/create-us
 import { VehicleDetailsComponent } from './components/vehicle-details/vehicle-details.component';
 import { CreateVehicleFormComponent } from './components/create-vehicle-form/create-vehicle-form.component';
 import { UpdateVehicleFormComponent } from './components/update-vehicle-form/update-vehicle-form.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,13 @@ import { UpdateVehicleFormComponent } from './components/update-vehicle-form/upd
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

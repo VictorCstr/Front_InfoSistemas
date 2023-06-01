@@ -42,6 +42,9 @@
           Obrigatório informar a senha!
         </div>
       </div>
+      <div class="text-danger mt-2 mb-4" *ngIf="error$ | async">
+        Erro ao realizar o login, preencha novamente conferindo os dados
+      </div>
       <button
         class="w-100 btn btn-warning"
         type="submit"
